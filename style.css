@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-wrapper {
+    background-color: #555;
+    width: 300px;
+    height: 1em;
+    border-radius: 30px;
+    box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 60%;
+    background: linear-gradient(to top ,#40DC52, rgba(64, 220, 82, 0.5));
+    border-radius: 2px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+/* added following */
+.progress::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0.2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.2) 75%,
+        transparent 75%,
+        transparent
+    );
+    z-index: 1;
+    background-size: 50px 50px;
+    animation: leftMoving 3s linear infinite;
+    /* background-repeat: no-repeat; */
+    /* background-position: 10px 10px; */
+}
+
+@keyframes leftMoving {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50px 50px;
+    }
+}
